@@ -1,8 +1,8 @@
 
-
-public class Introduction {
+public class day1{
     public static void main(String[] args){
        System.out.print("Welcom to Java");
+
        // constant variable
        // final variable we use capital letter
        final double PI = 3.14;
