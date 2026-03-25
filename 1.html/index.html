@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>n8n Web Form</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0a0a0a 0%, #000 60%);
+      color: #e6f7ff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(5, 10, 20, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 16px;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 25px 50px rgba(0, 0, 0, 0.6);
+      width: 100%;
+      max-width: 440px;
+      padding: 26px;
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin: 0 0 16px;
+      text-align: center;
+      letter-spacing: 0.04em;
+      color: #a5f3fc;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #c7f0ff;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: rgba(10, 15, 30, 0.8);
+      color: #e6f7ff;
+      box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.15);
+    }
+
+    .field input::placeholder,
+    .field select option {
+      color: rgba(230, 247, 255, 0.7);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+      background: rgba(12, 18, 36, 0.95);
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .actions button {
+      background: linear-gradient(135deg, #22d3ee, #c084fc);
+      color: #0b1224;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 10px 20px rgba(34, 211, 238, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 25px rgba(34, 211, 238, 0.35);
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: rgba(230, 247, 255, 0.7);
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Register for a Course</h1>
+
+    <!--
+      For n8n, set the "action" to your webhook URL (usually /webhook/<id>)
+      and the method to POST.
+    -->
+    <form action="https://lamacod1.app.n8n.cloud/form-test/518f37c4-b3e2-4408-b5a6-5b8283f9edd8" method="POST">
+      <div class="field">
+        <label for="name">1. Name</label>
+        <input id="name" name="name" type="text" required placeholder="Your full name" />
+      </div>
+
+      <div class="field">
+        <label for="phone">2. Phone Number</label>
+        <input id="phone" name="phone" type="tel" required placeholder="e.g. +1234567890" />
+      </div>
+
+      <div class="field">
+        <label for="email">3. Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" />
+      </div>
+
+      <div class="field">
+        <label for="course">4. Choose a Course</label>
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Select a course</option>
+          <option value="html">HTML &amp; CSS Basics</option>
+          <option value="javascript">JavaScript Fundamentals</option>
+          <option value="java">Java Programming</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit</button>
+      </div>
+
+      <p class="hint">Tip: For n8n integration, point this form to your webhook URL.</p>
+    </form>
+  </main>
+</body>
+</html>
